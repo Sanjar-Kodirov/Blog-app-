@@ -3,7 +3,7 @@ import Container from '@mui/material/Container';
 const Nav = () => {
   return (
     <Container style={{ position: 'relative' }} maxWidth='lg'>
-      <nav>
+      <nav className='nav'>
         <span className='nav-logo'>Escape.</span>
         <ul>
           <li>
