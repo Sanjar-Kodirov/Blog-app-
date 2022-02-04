@@ -15,6 +15,7 @@ const Posts = () => {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = photos.slice(indexOfFirstPost, indexOfLastPost);
+  const count = Math.floor(photos.length / postsPerPage);
 
   const handleChange = (event, value) => {
     setCurrentPage(value);
@@ -51,7 +52,7 @@ const Posts = () => {
         </div>
         <Stack spacing={2}>
           <Pagination
-            count={indexOfLastPost}
+            count={count}
             page={currentPage}
             onChange={handleChange}
           />
