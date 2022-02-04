@@ -16,8 +16,6 @@ const Posts = () => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = photos.slice(indexOfFirstPost, indexOfLastPost);
 
-  // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const handleChange = (event, value) => {
     setCurrentPage(value);
   };
@@ -31,7 +29,10 @@ const Posts = () => {
           <div className='row'>
             {currentPosts.map((el) => {
               return (
-                <div className='col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center'>
+                <div
+                  key={el.id}
+                  className='col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center'
+                >
                   <Card el={el} />
                 </div>
               );
