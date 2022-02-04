@@ -5,6 +5,7 @@ const Context = createContext();
 const ContextProvider = ({ children }) => {
   const [photos, setPhotos] = useState([]);
   const [isLoading, setIsloading] = useState(true);
+  const [search, setSearch] = useState('');
 
   const getPhotos = async () => {
     const response = await fetch('https://jsonplaceholder.typicode.com/photos');
@@ -20,6 +21,10 @@ const ContextProvider = ({ children }) => {
       value={{
         photos,
         isLoading,
+        setPhotos,
+        search,
+        setSearch,
+        getPhotos,
       }}
     >
       {children}

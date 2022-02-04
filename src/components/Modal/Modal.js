@@ -19,7 +19,7 @@ const style = {
 };
 
 export default function NestedModal({ setOpen, open, modalInfo }) {
-  console.log(modalInfo);
+  // console.log(modalInfo);
   return (
     <div>
       {/* <Button onClick={handleOpen}>Open modal</Button> */}

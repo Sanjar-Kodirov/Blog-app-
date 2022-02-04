@@ -8,7 +8,7 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Card from '../Card/Card';
 const Posts = () => {
-  const { photos, isLoading } = useContext(Context);
+  const { photos, search } = useContext(Context);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(9);
 
@@ -27,16 +27,26 @@ const Posts = () => {
         <span className='line'></span>
         <div className='posts-container'>
           <div className='row'>
-            {currentPosts.map((el) => {
-              return (
-                <div
-                  key={el.id}
-                  className='col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center'
-                >
-                  <Card el={el} />
-                </div>
-              );
-            })}
+            {currentPosts
+              .filter((val) => {
+                if (search === '') {
+                  return val;
+                } else if (
+                  val.title.toLowerCase().includes(search.toLowerCase())
+                ) {
+                  return val;
+                }
+              })
+              .map((el) => {
+                return (
+                  <div
+                    key={el.id}
+                    className='col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center'
+                  >
+                    <Card el={el} />
+                  </div>
+                );
+              })}
           </div>
         </div>
         <Stack spacing={2}>
