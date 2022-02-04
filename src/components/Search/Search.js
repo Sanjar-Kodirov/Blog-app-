@@ -4,9 +4,10 @@ const Search = () => {
   const { photos, setPhotos, search, setSearch } = useContext(Context);
 
   return (
-    <div>
+    <div className='search-cont container'>
       <input
         onChange={(e) => setSearch(e.target.value)}
+        class='input primary'
         placeholder='search by name'
       />
     </div>

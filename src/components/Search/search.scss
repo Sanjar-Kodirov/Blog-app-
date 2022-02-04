@@ -1,0 +1,71 @@
+.search-cont {
+  text-align: center;
+  padding-top: 4rem;
+}
+
+//--------------------------
+// position
+.flex {
+  margin: 20% 20%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-content: center;
+  row-gap: 20px;
+  gap: 20px;
+}
+
+//--------------------------
+// input classes
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+$default: #b2bec3;
+$primary: #0984e3;
+$secondary: #6c5ce7;
+$success: #00b894;
+$warning: #fdcb6e;
+$danger: #d63031;
+$dark: #2d3436;
+$pink: #e84393;
+$white: #fff;
+
+$fontColor: #f7f7f7;
+$fontColorDark: #2d3436;
+$fontSize: 16px;
+
+@mixin input-border($color: $default) {
+  border: solid 1px $color;
+}
+
+@mixin input-border-focus($color: $default) {
+  border: solid 1px $color;
+  box-shadow: 0 0 3px $color;
+}
+
+.input {
+  font-family: Lato, Arial, Helvetica, sans-serif;
+  font-size: $fontSize;
+  font-weight: normal;
+  outline: none;
+  padding: 0.45em;
+  border-radius: 0.2em;
+  background-color: $white;
+  color: $fontColorDark;
+  width: 50%;
+  margin: auto;
+  line-height: 1.4em;
+  transition: all 0.3s ease;
+  @include input-border();
+
+  &:focus {
+    @include input-border-focus();
+  }
+
+  &.primary {
+    @include input-border($primary);
+    &:focus {
+      @include input-border-focus($primary);
+    }
+  }
+}
