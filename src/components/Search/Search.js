@@ -5,7 +5,10 @@ const Search = () => {
 
   return (
     <div>
-      <input onChange={(e) => setSearch(e.target.value)} placeholder='search by name' />
+      <input
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder='search by name'
+      />
     </div>
   );
 };
